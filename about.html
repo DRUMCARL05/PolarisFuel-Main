@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://polarisfuel.app/about.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#FF6B1A">
+  <title>About — Polaris Fuel</title>
+  <meta name="description" content="Polaris Fuel is a Web3 gaming coordination organization specializing in economic infrastructure, guild operations, and community building across blockchain games.">
+  <meta property="og:title" content="About — Polaris Fuel">
+  <meta property="og:description" content="Three co-founders. Multi-game economic infrastructure. Built for the long run.">
+  <meta property="og:image" content="https://polarisfuel.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Polaris_Fuel">
+  <style>
+    :root{--fire:#FF6B1A;--ember:#FF9A00;--gold:#D4A843;--gold-pale:#e8cc7a;--dark:#0A0704;--dark-mid:#120C05;--dark-surface:#1A1008;--dark-card:#1F1409;--text:#D4C4A8;--text-dim:#7A6A54;--border:rgba(212,168,67,0.15);--border-bright:rgba(212,168,67,0.4)}
+    .skip-link{position:absolute;top:-100px;left:1rem;background:var(--fire);color:#0A0704;padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;z-index:10000;transition:top .2s}
+    .skip-link:focus{top:1rem}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{background:var(--dark);color:var(--text);font-family:'Lato',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.5}
+    #cursor{position:fixed;top:0;left:0;width:10px;height:10px;background:var(--fire);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:screen}
+    #cursor-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(255,107,26,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
+    body:has(a:hover) #cursor,body:has(button:hover) #cursor{width:18px;height:18px;background:var(--ember)}
+    body:has(a:hover) #cursor-ring,body:has(button:hover) #cursor-ring{width:48px;height:48px;border-color:var(--gold)}
+    #particle-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.55}
+    nav#navbar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;border-bottom:1px solid transparent;transition:background .4s,border-color .4s,backdrop-filter .4s}
+    nav#navbar.scrolled{background:rgba(10,7,4,0.92);border-color:var(--border);backdrop-filter:blur(14px)}
+    .nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+    .nav-emblem{width:36px;height:auto;mix-blend-mode:screen;filter:drop-shadow(0 0 6px rgba(255,107,26,0.5));flex-shrink:0}
+    .nav-logo-text{font-family:'Cinzel',serif;font-size:.82rem;font-weight:600;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+    .nav-links a{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--fire);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .nav-discord-btn{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:.42rem .95rem;background:linear-gradient(135deg,var(--fire),var(--ember));color:#0A0704;text-decoration:none;font-weight:700;transition:transform .2s,box-shadow .2s;cursor:none}
+    .nav-discord-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,107,26,0.4)}
+    .nav-lang{display:flex;gap:.4rem}
+    .lang-btn{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.14em;padding:.26rem .52rem;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:none;transition:all .2s}
+    .lang-btn.active,.lang-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,168,67,0.08)}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:none;padding:4px;background:none;border:none}
+    .nav-hamburger span{display:block;width:24px;height:1px;background:var(--gold);transition:all .3s}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-hamburger.open span:nth-child(2){opacity:0}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,7,4,0.98);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s}
+    .mobile-menu a:hover{color:var(--gold)}
+    .mobile-menu-discord{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 2rem;background:linear-gradient(135deg,var(--fire),var(--ember));color:#0A0704;text-decoration:none;font-weight:700;margin-top:1rem}
+    .mobile-lang{display:flex;gap:.6rem;margin-top:.5rem}
+    section,footer{position:relative;z-index:2}
+    .btn-primary{font-family:'Cinzel',serif;font-size:.67rem;letter-spacing:.25em;text-transform:uppercase;padding:.95rem 2rem;background:linear-gradient(135deg,var(--fire),var(--ember));color:#0A0704;border:none;text-decoration:none;display:inline-block;font-weight:700;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:none}
+    .btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--ember),var(--gold));opacity:0;transition:opacity .3s}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,26,0.4)}
+    .btn-primary:hover::before{opacity:1}
+    .btn-primary span{position:relative;z-index:1}
+    .btn-ghost{font-family:'Cinzel',serif;font-size:.67rem;letter-spacing:.25em;text-transform:uppercase;padding:.95rem 2rem;background:transparent;color:var(--gold);border:1px solid var(--border-bright);text-decoration:none;display:inline-block;transition:all .3s;cursor:none}
+    .btn-ghost:hover{background:rgba(212,168,67,0.08);border-color:var(--gold);color:var(--gold-pale);transform:translateY(-2px)}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}.reveal-delay-5{transition-delay:.5s}
+    .section-label{font-family:'Cinzel',serif;font-size:.57rem;letter-spacing:.4em;text-transform:uppercase;color:var(--fire);margin-bottom:1.8rem;display:flex;align-items:center;gap:1rem}
+    .section-label::before,.section-label::after{content:'';display:block;width:26px;height:1px;background:var(--fire)}
+    .section-title{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--gold-pale);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+    .section-sub{font-size:.92rem;color:var(--text-dim);line-height:1.9;max-width:500px}
+    .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border-bright),transparent);position:relative;z-index:2}
+    .phase-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:'Cinzel',serif;font-size:.53rem;letter-spacing:.25em;text-transform:uppercase;padding:.32rem .85rem;border:1px solid rgba(255,107,26,0.4);color:var(--fire);background:rgba(255,107,26,0.06)}
+    .phase-badge::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--fire);animation:pulseDot 1.5s ease-in-out infinite}
+    @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.65)}}
+    footer{padding:3rem;border-top:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+    .footer-logo-text{font-family:'Cinzel',serif;font-size:.78rem;font-weight:600;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem}
+    .footer-copy{font-size:.75rem;color:var(--text-dim);line-height:1.8}
+    .footer-nav{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+    .footer-nav a{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s}
+    .footer-nav a:hover{color:var(--gold)}
+    .footer-token{font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:rgba(212,168,67,0.15);letter-spacing:.15em;align-self:flex-end}
+    body span[data-lang]{display:none}
+    body:not(.lang-es) span[data-lang="en"]{display:inline}
+    body.lang-es span[data-lang="es"]{display:inline}
+    body:not(.lang-es) div[data-lang="en"]{display:block}
+    body.lang-es div[data-lang="es"]{display:block}
+    div[data-lang]{display:none}
+
+    /* ABOUT HERO */
+    #about-hero{min-height:65vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10rem 2rem 6rem;position:relative;overflow:hidden}
+    .about-hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(255,107,26,0.07) 0%,transparent 65%);pointer-events:none}
+    .about-hero-eyebrow{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.42em;text-transform:uppercase;color:var(--fire);margin-bottom:2rem;opacity:0;animation:fadeUp .8s .3s forwards;display:flex;align-items:center;gap:1rem}
+    .about-hero-eyebrow::before,.about-hero-eyebrow::after{content:'';display:inline-block;width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--fire))}
+    .about-hero-eyebrow::after{background:linear-gradient(90deg,var(--fire),transparent)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .about-hero-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;color:var(--gold-pale);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.2rem;line-height:1.15;opacity:0;animation:fadeUp .8s .5s forwards}
+    .about-hero-sub{font-size:1rem;line-height:1.9;color:var(--text-dim);max-width:580px;opacity:0;animation:fadeUp .8s .7s forwards}
+
+    /* MISSION STRIP */
+    #mission-strip{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+    .mission-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+    .mission-col{background:var(--dark-card);padding:2.5rem 2rem;position:relative;overflow:hidden}
+    .mission-col::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--fire),transparent);transform:scaleX(0);transition:transform .4s}
+    .mission-col:hover::before{transform:scaleX(1)}
+    .mission-col:hover{background:#1c1008}
+    .mission-col-icon{font-size:1.6rem;margin-bottom:1.2rem;display:block;filter:drop-shadow(0 0 8px rgba(255,107,26,0.3))}
+    .mission-col-title{font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;color:var(--gold-pale);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem}
+    .mission-col-text{font-size:.87rem;line-height:1.85;color:var(--text-dim)}
+
+    /* TIMELINE */
+    #timeline{padding:8rem 2rem;max-width:900px;margin:0 auto}
+    .timeline-inner{position:relative}
+    .timeline-line{position:absolute;left:120px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--fire),rgba(255,107,26,0.1));opacity:.4}
+    .timeline-item{display:grid;grid-template-columns:120px 1fr;gap:3rem;margin-bottom:5rem;position:relative}
+    .timeline-item:last-child{margin-bottom:0}
+    .timeline-year{font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;color:var(--fire);letter-spacing:.2em;text-transform:uppercase;padding-top:.3rem;text-align:right;opacity:.9;padding-right:20px}
+    .timeline-dot{position:absolute;left:115px;top:.45rem;width:11px;height:11px;border-radius:50%;background:var(--fire);border:2px solid var(--dark);box-shadow:0 0 10px rgba(255,107,26,0.6)}
+    .timeline-dot.active{background:var(--ember);box-shadow:0 0 16px rgba(255,154,0,0.8);animation:pulseDot 1.5s ease-in-out infinite}
+    .timeline-content{}
+    .timeline-label{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;color:var(--gold-pale);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem}
+    .timeline-text{font-size:.9rem;line-height:1.9;color:var(--text-dim)}
+
+    /* NARRATIVE */
+    #narrative{padding:6rem 2rem;text-align:center;position:relative}
+    .narrative-inner{max-width:720px;margin:0 auto}
+    .narrative-headline{font-family:'Cinzel Decorative',serif;font-size:clamp(1.3rem,3vw,2rem);font-weight:700;color:var(--gold-pale);line-height:1.3;margin-bottom:2.5rem;letter-spacing:.02em}
+    .narrative-headline span{color:var(--fire)}
+    .narrative-body{font-size:1rem;line-height:2;color:var(--text-dim);margin-bottom:1.5rem}
+    .narrative-quote{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);letter-spacing:.08em;line-height:1.9;padding:2rem 2.5rem;border-left:2px solid var(--fire);background:rgba(255,107,26,0.04);text-align:left;margin-top:2rem}
+
+    /* PARTNERSHIP */
+    #partnership{padding:8rem 2rem;max-width:900px;margin:0 auto}
+    .partner-header{text-align:center;margin-bottom:4rem}
+    .partner-card{border:1px solid var(--border-bright);background:var(--dark-card);padding:3rem 3rem 2.5rem;position:relative;overflow:hidden;margin-bottom:2rem}
+    .partner-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--fire),var(--gold),transparent)}
+    .partner-name{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--fire);margin-bottom:.6rem;display:flex;align-items:center;gap:.8rem}
+    .partner-name::before{content:'';display:block;width:18px;height:1px;background:var(--fire)}
+    .partner-badge{display:inline-flex;align-items:center;gap:.4rem;font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;padding:.25rem .65rem;border:1px solid rgba(212,168,67,0.4);color:var(--gold);background:rgba(212,168,67,0.05);margin-left:.5rem}
+    .partner-badge::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulseDot 2s ease-in-out infinite}
+    .partner-title{font-family:'Cinzel',serif;font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:900;color:var(--gold-pale);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.2rem;line-height:1.2}
+    .partner-body{font-size:.92rem;line-height:1.95;color:var(--text-dim);margin-bottom:1.8rem}
+    .partner-games{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
+    .partner-game-tag{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;padding:.28rem .7rem;border:1px solid var(--border);color:var(--text-dim);background:transparent;transition:all .3s}
+    .partner-game-tag.active{border-color:rgba(255,107,26,0.4);color:var(--fire);background:rgba(255,107,26,0.05)}
+    .partner-detail{font-size:.82rem;color:var(--text-dim);line-height:1.85;padding-top:1.5rem;border-top:1px solid var(--border);margin-top:1.5rem}
+
+    /* TEAM */
+    #team{padding:8rem 2rem;max-width:1100px;margin:0 auto}
+    .team-header{text-align:center;margin-bottom:5rem}
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+    .team-card{padding:2.5rem 2rem;border:1px solid var(--border);background:var(--dark-card);transition:border-color .3s,background .3s;text-align:center;position:relative;overflow:hidden}
+    .team-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--fire),transparent);transform:scaleX(0);transition:transform .4s}
+    .team-card:hover{border-color:rgba(255,107,26,0.3);background:#1c1008}
+    .team-card:hover::before{transform:scaleX(1)}
+    .team-avatar-wrap{width:80px;height:80px;margin:0 auto 1.4rem}
+    .team-avatar-img{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,168,67,0.25);display:block}
+    .team-avatar-placeholder{width:80px;height:80px;border-radius:50%;background:rgba(255,107,26,0.08);border:2px solid rgba(255,107,26,0.2);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:1.8rem;color:var(--fire);font-weight:700}
+    .team-handle{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;color:var(--gold-pale);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.3rem}
+    .team-role{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--fire);margin-bottom:.5rem;opacity:.85}
+    .team-focus{font-size:.78rem;color:var(--text-dim);margin-bottom:1rem;line-height:1.6;font-style:italic}
+    .team-bio{font-size:.85rem;line-height:1.85;color:var(--text);text-align:left}
+    .team-honesty{text-align:center;margin-top:3rem;padding:1.8rem 2.5rem;border:1px solid var(--border);background:var(--dark-card);max-width:660px;margin-left:auto;margin-right:auto}
+    .team-honesty p{font-size:.9rem;line-height:1.85;color:var(--text-dim)}
+    .mods-block{margin-top:4rem;text-align:center}
+    .mods-label{font-family:'Cinzel',serif;font-size:.57rem;letter-spacing:.35em;text-transform:uppercase;color:var(--fire);margin-bottom:.8rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+    .mods-label::before,.mods-label::after{content:'';display:block;width:26px;height:1px;background:rgba(255,107,26,0.4)}
+    .mods-desc{font-size:.85rem;color:var(--text-dim);margin-bottom:2rem}
+    .mods-grid{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+    .mod-card{display:flex;flex-direction:column;align-items:center;gap:.7rem}
+    .mod-avatar{width:64px;height:64px;border-radius:50%;background:rgba(255,107,26,0.08);border:1px solid rgba(212,168,67,0.2);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:1.2rem;color:var(--fire);font-weight:700}
+    .mod-name{font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;color:var(--gold-pale);letter-spacing:.1em;text-transform:uppercase}
+    .mod-role{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim)}
+
+    /* VALUES */
+    #values{padding:8rem 2rem;max-width:1100px;margin:0 auto}
+    .values-header{text-align:center;margin-bottom:4rem}
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border)}
+    .value-card{background:var(--dark-card);padding:2.5rem 2rem;transition:background .3s}
+    .value-card:hover{background:#1c1008}
+    .value-icon{font-size:1.5rem;display:block;margin-bottom:1rem;filter:drop-shadow(0 0 8px rgba(255,107,26,0.35))}
+    .value-title{font-family:'Cinzel',serif;font-size:.8rem;font-weight:700;color:var(--gold-pale);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.7rem}
+    .value-desc{font-size:.87rem;line-height:1.8;color:var(--text-dim)}
+
+    /* CTA */
+    #cta{padding:10rem 2rem;text-align:center;position:relative;overflow:hidden}
+    .cta-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cinzel Decorative',serif;font-size:clamp(6rem,15vw,13rem);font-weight:700;color:rgba(255,107,26,0.03);letter-spacing:.2em;pointer-events:none;white-space:nowrap;user-select:none}
+    .cta-inner{position:relative;z-index:1;max-width:650px;margin:0 auto}
+    .cta-headline{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:900;color:var(--gold-pale);letter-spacing:.06em;text-transform:uppercase;line-height:1.2;margin-bottom:1.5rem}
+    .cta-sub{font-size:.95rem;line-height:1.9;color:var(--text-dim);margin-bottom:2.5rem}
+    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+    @media(max-width:900px){
+      nav#navbar{padding:1rem 1.5rem}
+      .nav-links,.nav-discord-btn{display:none}
+      .nav-hamburger{display:flex}
+      .timeline-line,.timeline-dot{display:none}
+      .timeline-item{grid-template-columns:1fr;gap:.5rem}
+      .timeline-year{text-align:left}
+      .team-grid{grid-template-columns:1fr}
+      .mission-cols,.values-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:600px){
+      #cursor,#cursor-ring{display:none}
+      body{cursor:auto}
+      a,button{cursor:auto}
+      footer{flex-direction:column}
+      .partner-card{padding:2rem 1.5rem}
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="particle-canvas"></canvas>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+  <a href="about.html" class="active"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+  <a href="tools.html"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a>
+  <a href="resources.html"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a>
+  <a href="roadmap.html"><span data-lang="en">Roadmap</span><span data-lang="es">Hoja de Ruta</span></a>
+  <a href="join.html" style="color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a>
+  <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="mobile-menu-discord">Discord</a>
+  <div class="mobile-lang">
+    <button class="lang-btn active lang-btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn lang-btn-es" onclick="setLang('es')">ES</button>
+  </div>
+</div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-text">Polaris Fuel</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a></li>
+    <li><a href="about.html" class="active"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a></li>
+    <li><a href="tools.html"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a></li>
+    <li><a href="resources.html"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a></li>
+    <li><a href="roadmap.html"><span data-lang="en">Roadmap</span><span data-lang="es">Hoja de Ruta</span></a></li>
+    <li><a href="join.html" style="color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="nav-discord-btn">Discord</a>
+    <div class="nav-lang">
+      <button class="lang-btn active lang-btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn lang-btn-es" onclick="setLang('es')">ES</button>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section id="about-hero">
+  <div class="about-hero-glow"></div>
+  <div class="about-hero-eyebrow">
+    <span data-lang="en">Our Story</span>
+    <span data-lang="es">Nuestra Historia</span>
+  </div>
+  <h1 class="about-hero-title">
+    <span data-lang="en">Fire & Metal.<br>Forged to Last.</span>
+    <span data-lang="es">Fuego y Metal.<br>Construidos para Durar.</span>
+  </h1>
+  <p class="about-hero-sub">
+    <span data-lang="en">Three co-founders. Full-time jobs. Families. And an unshakeable conviction that Web3 gaming economies need real coordination infrastructure — not hype.</span>
+    <span data-lang="es">Tres co-fundadores. Trabajos de tiempo completo. Familias. Y una convicción inquebrantable de que las economías de gaming Web3 necesitan infraestructura de coordinación real, no hype.</span>
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- MISSION STRIP -->
+<section id="mission-strip">
+  <div class="mission-cols">
+    <div class="mission-col reveal reveal-delay-1">
+      <span class="mission-col-icon">⚙️</span>
+      <div class="mission-col-title"><span data-lang="en">Coordination Infrastructure</span><span data-lang="es">Infraestructura de Coordinación</span></div>
+      <p class="mission-col-text"><span data-lang="en">We build the systems that make complex in-game economies legible — guild coordination, economic tooling, and resource logistics at scale.</span><span data-lang="es">Construimos sistemas que hacen legibles las economías complejas de juego — coordinación de gremios, herramientas económicas y logística de recursos a escala.</span></p>
+    </div>
+    <div class="mission-col reveal reveal-delay-2">
+      <span class="mission-col-icon">📊</span>
+      <div class="mission-col-title"><span data-lang="en">Economic Arbitrage</span><span data-lang="es">Arbitraje Económico</span></div>
+      <p class="mission-col-text"><span data-lang="en">Bulk resource trading, market analysis, and OTC operations. We find inefficiencies, quantify them, and act on them before others know they exist.</span><span data-lang="es">Comercio de recursos a gran escala, análisis de mercado y operaciones OTC. Encontramos ineficiencias, las cuantificamos y actuamos antes de que otros sepan que existen.</span></p>
+    </div>
+    <div class="mission-col reveal reveal-delay-3">
+      <span class="mission-col-icon">🏛️</span>
+      <div class="mission-col-title"><span data-lang="en">Political Consulting</span><span data-lang="es">Consultoría Política</span></div>
+      <p class="mission-col-text"><span data-lang="en">In games where governance and faction dynamics matter, we advise on positioning, alliance-building, and long-term influence strategies within ecosystems.</span><span data-lang="es">En juegos donde la gobernanza y las dinámicas de facción importan, asesoramos en posicionamiento, construcción de alianzas y estrategias de influencia a largo plazo.</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="section-label reveal" style="justify-content:center;margin-bottom:4rem">
+    <span data-lang="en">Our Journey</span>
+    <span data-lang="es">Nuestro Camino</span>
+  </div>
+  <div class="timeline-inner">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2022</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-label">
+          <span data-lang="en">Founded</span>
+          <span data-lang="es">Fundación</span>
+        </div>
+        <p class="timeline-text">
+          <span data-lang="en">Polaris Fuel founded as a Web3 gaming coordination organization. Early exploration of player-owned economies — learning what it means to build community infrastructure around complex, interdependent game mechanics.</span>
+          <span data-lang="es">Polaris Fuel fundado como organización de coordinación gaming Web3. Exploración temprana de economías de jugadores — aprendiendo qué significa construir infraestructura comunitaria alrededor de mecánicas de juego complejas e interdependientes.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal reveal-delay-1">
+      <div class="timeline-year">2023–2024</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-label">
+          <span data-lang="en">Star Atlas Chapter</span>
+          <span data-lang="es">Capítulo Star Atlas</span>
+        </div>
+        <p class="timeline-text">
+          <span data-lang="en">We built coordination infrastructure for Star Atlas and survived a full bear market doing it. Guild systems, economic tooling, member coordination — hard-won knowledge that transferred directly to everything we're building now. We didn't chase the price. We studied the problem.</span>
+          <span data-lang="es">Construimos infraestructura de coordinación para Star Atlas y sobrevivimos un mercado bajista completo en el proceso. Sistemas de gremio, herramientas económicas, coordinación de miembros — conocimiento ganado con esfuerzo que se transfiere directamente a todo lo que construimos ahora. No perseguimos el precio. Estudiamos el problema.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal reveal-delay-2">
+      <div class="timeline-year">Early 2026</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-label">
+          <span data-lang="en">Omen Games Partnership</span>
+          <span data-lang="es">Alianza con Omen Games</span>
+        </div>
+        <p class="timeline-text">
+          <span data-lang="en">We discovered Omen Games (formerly Valannia Studio) — a studio building games with genuinely complex player economies. After meetings and rigorous review, we signed a confidential collaboration agreement. Omen Games will share information and resources; Polaris Fuel will support on the community and coordination side. Our first major activation.</span>
+          <span data-lang="es">Descubrimos Omen Games (anteriormente Valannia Studio) — un estudio que construye juegos con economías de jugadores genuinamente complejas. Tras reuniones y revisión rigurosa, firmamos un acuerdo de colaboración confidencial. Omen Games compartirá información y recursos; Polaris Fuel apoyará en el lado comunitario y de coordinación. Nuestra primera activación mayor.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal reveal-delay-3">
+      <div class="timeline-year">2026</div>
+      <div class="timeline-dot active"></div>
+      <div class="timeline-content">
+        <div class="timeline-label">
+          <span data-lang="en">Law of the Abyss — Now</span>
+          <span data-lang="es">Law of the Abyss — Ahora</span>
+        </div>
+        <p class="timeline-text">
+          <span data-lang="en">Omen Games' flagship title Law of the Abyss (LOTA) is imminent. A player-driven space economy with dual-currency forex mechanics, faction-based stations, hostile takeover systems, and complex logistics. Exactly what Polaris Fuel was built for. We're in position from day one.</span>
+          <span data-lang="es">El título insignia de Omen Games, Law of the Abyss (LOTA), es inminente. Una economía espacial impulsada por jugadores con mecánicas forex de doble moneda, estaciones basadas en facciones, sistemas de adquisición hostil y logística compleja. Exactamente para lo que fue construido Polaris Fuel. Estamos posicionados desde el primer día.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NARRATIVE -->
+<section id="narrative">
+  <div class="narrative-inner">
+    <h2 class="narrative-headline reveal">
+      <span data-lang="en">We never chased<br><span>the bull market.</span><br>We built for the<br>games that matter.</span>
+      <span data-lang="es">Nunca perseguimos<br><span>el mercado alcista.</span><br>Construimos para los<br>juegos que importan.</span>
+    </h2>
+    <p class="narrative-body reveal reveal-delay-1">
+      <span data-lang="en">Most Web3 gaming organizations failed in this cycle because they were built on speculation, not substance. We watched it happen. We also survived it — because we were always more interested in the coordination problem than the token price.</span>
+      <span data-lang="es">La mayoría de organizaciones de gaming Web3 fallaron en este ciclo porque estaban construidas sobre especulación, no sustancia. Lo vimos ocurrir. También sobrevivimos — porque siempre nos interesó más el problema de coordinación que el precio del token.</span>
+    </p>
+    <p class="narrative-body reveal reveal-delay-2">
+      <span data-lang="en">Our approach hasn't changed: find games with economic depth that demands real coordination, embed deeply, and build the infrastructure that makes the ecosystem function better for everyone. Polaris Fuel is not a guild. It's not a trading desk. It's coordination infrastructure — the plumbing that complex game economies need.</span>
+      <span data-lang="es">Nuestro enfoque no ha cambiado: encontrar juegos con profundidad económica que demande coordinación real, integrarnos profundamente, y construir la infraestructura que hace funcionar mejor al ecosistema para todos. Polaris Fuel no es un gremio. No es una mesa de trading. Es infraestructura de coordinación — la plomería que necesitan las economías complejas de juego.</span>
+    </p>
+    <div class="narrative-quote reveal reveal-delay-3">
+      <span data-lang="en">"Fire &amp; Metal Logistics. We don't just play the game —<br>we build what the game runs on."</span>
+      <span data-lang="es">"Fire &amp; Metal Logistics. No solo jugamos el juego —<br>construimos sobre lo que el juego corre."</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PARTNERSHIP -->
+<section id="partnership">
+  <div class="partner-header">
+    <div class="section-label reveal" style="justify-content:center">
+      <span data-lang="en">Active Partnership</span>
+      <span data-lang="es">Alianza Activa</span>
+    </div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center">
+      <span data-lang="en">Building with studios,<br>not just around them.</span>
+      <span data-lang="es">Construyendo con estudios,<br>no solo alrededor de ellos.</span>
+    </h2>
+  </div>
+
+  <div class="partner-card reveal reveal-delay-2">
+    <div class="partner-name">
+      <span data-lang="en">Primary Partner</span>
+      <span data-lang="es">Socio Principal</span>
+      <span class="partner-badge"><span data-lang="en">Signed Agreement</span><span data-lang="es">Acuerdo Firmado</span></span>
+    </div>
+    <h3 class="partner-title">
+      <span data-lang="en">Omen Games Studio</span>
+      <span data-lang="es">Omen Games Studio</span>
+    </h3>
+    <p class="partner-body">
+      <span data-lang="en">Omen Games is a game studio building interconnected titles with genuine economic depth — player-owned businesses, multi-faction currency systems, dynamic supply chains, and governance mechanics that reward long-term strategic positioning. After establishing a relationship through Birr4s and multiple studio meetings, Polaris Fuel and Omen Games signed a confidential collaboration agreement in early 2026.</span>
+      <span data-lang="es">Omen Games es un estudio de juegos que construye títulos interconectados con profundidad económica genuina — negocios de jugadores, sistemas de moneda multifacción, cadenas de suministro dinámicas y mecánicas de gobernanza que recompensan el posicionamiento estratégico a largo plazo. Después de establecer una relación a través de Birr4s y múltiples reuniones con el estudio, Polaris Fuel y Omen Games firmaron un acuerdo de colaboración confidencial a principios de 2026.</span>
+    </p>
+    <div class="partner-games">
+      <span class="partner-game-tag active">
+        <span data-lang="en">Law of the Abyss — Imminent</span>
+        <span data-lang="es">Law of the Abyss — Inminente</span>
+      </span>
+      <span class="partner-game-tag active">
+        <span data-lang="en">Valannia Realms — Live</span>
+        <span data-lang="es">Valannia Realms — En Vivo</span>
+      </span>
+      <span class="partner-game-tag">
+        <span data-lang="en">Future Titles — TBA</span>
+        <span data-lang="es">Títulos Futuros — Por anunciar</span>
+      </span>
+    </div>
+    <div class="partner-detail">
+      <span data-lang="en">Under the agreement, Omen Games will share information and resources needed for Polaris Fuel to support the community side of their ecosystem. Our collaboration covers community coordination, economic content, player education, and infrastructure tooling across their game portfolio. The relationship is confirmed as active and deepening — with new title launches on the immediate horizon.</span>
+      <span data-lang="es">Bajo el acuerdo, Omen Games compartirá la información y los recursos necesarios para que Polaris Fuel apoye el lado comunitario de su ecosistema. Nuestra colaboración cubre coordinación comunitaria, contenido económico, educación de jugadores e infraestructura de herramientas en su portafolio de juegos. La relación está confirmada como activa y en profundización — con nuevos lanzamientos de títulos en el horizonte inmediato.</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-header">
+    <div class="section-label reveal" style="justify-content:center">
+      <span data-lang="en">The Team</span>
+      <span data-lang="es">El Equipo</span>
+    </div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center">
+      <span data-lang="en">Three co-founders. Full commitment.</span>
+      <span data-lang="es">Tres co-fundadores. Compromiso total.</span>
+    </h2>
+  </div>
+  <div class="team-grid">
+
+    <!-- DRUMCARL05 -->
+    <div class="team-card reveal reveal-delay-1">
+      <div class="team-avatar-wrap">
+        <div class="team-avatar-placeholder">D</div>
+      </div>
+      <div class="team-handle">DRUMCARL05</div>
+      <div class="team-role"><span data-lang="en">Co-Founder</span><span data-lang="es">Co-Fundador</span></div>
+      <div class="team-focus"><span data-lang="en">Strategy · Operations · Community</span><span data-lang="es">Estrategia · Operaciones · Comunidad</span></div>
+      <p class="team-bio">
+        <span data-lang="en">Organization lead and strategic synthesizer. Drumcarlos keeps the long view — evaluating opportunities through Polaris Fuel's core competencies, coordinating internal operations, and ensuring every initiative connects back to the infrastructure mission. Star Atlas veteran since 2022.</span>
+        <span data-lang="es">Líder de organización y sintetizador estratégico. Drumcarlos mantiene la visión a largo plazo — evaluando oportunidades a través de las competencias centrales de Polaris Fuel, coordinando operaciones internas y asegurando que cada iniciativa conecte con la misión de infraestructura. Veterano de Star Atlas desde 2022.</span>
+      </p>
+    </div>
+
+    <!-- BIRR4S -->
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-avatar-wrap">
+        <div class="team-avatar-placeholder">B</div>
+      </div>
+      <div class="team-handle">Birr4s</div>
+      <div class="team-role"><span data-lang="en">Co-Founder</span><span data-lang="es">Co-Fundador</span></div>
+      <div class="team-focus"><span data-lang="en">Studio Relations · External Partnerships</span><span data-lang="es">Relaciones con Estudios · Alianzas Externas</span></div>
+      <p class="team-bio">
+        <span data-lang="en">Primary liaison between Polaris Fuel and game studios. Birr4s built and maintains the relationship with Omen Games — conducting studio meetings, negotiating the collaboration framework, and identifying emerging opportunities within their ecosystem before they become public.</span>
+        <span data-lang="es">Enlace principal entre Polaris Fuel y los estudios de juegos. Birr4s construyó y mantiene la relación con Omen Games — realizando reuniones con el estudio, negociando el marco de colaboración e identificando oportunidades emergentes dentro de su ecosistema antes de que sean públicas.</span>
+      </p>
+    </div>
+
+    <!-- GRIMGORR -->
+    <div class="team-card reveal reveal-delay-3">
+      <div class="team-avatar-wrap">
+        <div class="team-avatar-placeholder">G</div>
+      </div>
+      <div class="team-handle">Grimgorr</div>
+      <div class="team-role"><span data-lang="en">Co-Founder</span><span data-lang="es">Co-Fundador</span></div>
+      <div class="team-focus"><span data-lang="en">Technology · Development · Product</span><span data-lang="es">Tecnología · Desarrollo · Producto</span></div>
+      <p class="team-bio">
+        <span data-lang="en">The engineer behind Polaris Fuel's proprietary tooling. Grimgorr built the Axon dApp — our multi-wallet resource management and OTC escrow platform running on React, Firebase, and Solana. When we say we have tools other organizations don't, Grimgorr is why.</span>
+        <span data-lang="es">El ingeniero detrás de las herramientas propietarias de Polaris Fuel. Grimgorr construyó el Axon dApp — nuestra plataforma de gestión de recursos multi-wallet y escrow OTC que corre en React, Firebase y Solana. Cuando decimos que tenemos herramientas que otras organizaciones no tienen, Grimgorr es la razón.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- SUPPORTING TEAM -->
+  <div class="mods-block reveal">
+    <div class="mods-label">
+      <span data-lang="en">Supporting Team</span>
+      <span data-lang="es">Equipo de Apoyo</span>
+    </div>
+    <p class="mods-desc">
+      <span data-lang="en">Veteran contributors who make the ecosystem run.</span>
+      <span data-lang="es">Colaboradores veteranos que hacen funcionar el ecosistema.</span>
+    </p>
+    <div class="mods-grid">
+      <div class="mod-card">
+        <div class="mod-avatar">S</div>
+        <div class="mod-name">StacheAttack</div>
+        <div class="mod-role"><span data-lang="en">Marketing · Merchandise · Radio</span><span data-lang="es">Marketing · Merch · Radio</span></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-avatar">M</div>
+        <div class="mod-name">Morangø</div>
+        <div class="mod-role"><span data-lang="en">Community Moderator</span><span data-lang="es">Moderador Comunitario</span></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-avatar">B</div>
+        <div class="mod-name">Bufalo Blanco</div>
+        <div class="mod-role"><span data-lang="en">Community Moderator</span><span data-lang="es">Moderador Comunitario</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-honesty reveal">
+    <p>
+      <span data-lang="en">We have full-time jobs outside of this. We are not a funded startup. We built Polaris Fuel around real skills, real experience, and a real partnership with a studio that backs us. That is a more honest foundation than most projects have.</span>
+      <span data-lang="es">Tenemos trabajos de tiempo completo fuera de esto. No somos una startup financiada. Construimos Polaris Fuel alrededor de habilidades reales, experiencia real y una alianza real con un estudio que nos respalda. Esa es una base más honesta de la que tiene la mayoría de los proyectos.</span>
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="values-header">
+    <div class="section-label reveal" style="justify-content:center">
+      <span data-lang="en">What We Stand For</span>
+      <span data-lang="es">Lo Que Defendemos</span>
+    </div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center">
+      <span data-lang="en">Our principles.</span>
+      <span data-lang="es">Nuestros principios.</span>
+    </h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal reveal-delay-1">
+      <span class="value-icon">🎯</span>
+      <div class="value-title"><span data-lang="en">Expertise Over Breadth</span><span data-lang="es">Experiencia Sobre Amplitud</span></div>
+      <p class="value-desc"><span data-lang="en">Deep knowledge of one system beats shallow knowledge of ten. We go narrow and deep — and expand only when we've mastered the core.</span><span data-lang="es">El conocimiento profundo de un sistema supera al superficial de diez. Vamos estrecho y profundo — y expandimos solo cuando dominamos el núcleo.</span></p>
+    </div>
+    <div class="value-card reveal reveal-delay-2">
+      <span class="value-icon">🔍</span>
+      <div class="value-title"><span data-lang="en">Transparency Always</span><span data-lang="es">Transparencia Siempre</span></div>
+      <p class="value-desc"><span data-lang="en">We show our work. We admit what we don't know. We acknowledge limitations instead of hiding them. In Web3, that is rarer than it should be.</span><span data-lang="es">Mostramos nuestro trabajo. Admitimos lo que no sabemos. Reconocemos limitaciones en lugar de ocultarlas. En Web3, eso es más raro de lo que debería ser.</span></p>
+    </div>
+    <div class="value-card reveal reveal-delay-3">
+      <span class="value-icon">🤝</span>
+      <div class="value-title"><span data-lang="en">Collaborative by Design</span><span data-lang="es">Colaborativos por Diseño</span></div>
+      <p class="value-desc"><span data-lang="en">We're not building a walled garden. Our content helps everyone. Our partnerships benefit the ecosystem. Rising tide, not zero-sum.</span><span data-lang="es">No construimos un jardín cerrado. Nuestro contenido ayuda a todos. Nuestras alianzas benefician al ecosistema. Marea que sube, no suma cero.</span></p>
+    </div>
+    <div class="value-card reveal reveal-delay-1">
+      <span class="value-icon">⏳</span>
+      <div class="value-title"><span data-lang="en">Patient Capital</span><span data-lang="es">Capital Paciente</span></div>
+      <p class="value-desc"><span data-lang="en">We build for years, not months. We've seen what happens when projects chase the bull market. We're building infrastructure that remains useful when the hype fades.</span><span data-lang="es">Construimos para años, no meses. Hemos visto qué pasa cuando los proyectos persiguen el mercado alcista. Construimos infraestructura que sigue siendo útil cuando el hype se desvanece.</span></p>
+    </div>
+    <div class="value-card reveal reveal-delay-2">
+      <span class="value-icon">📊</span>
+      <div class="value-title"><span data-lang="en">Data-Driven</span><span data-lang="es">Basados en Datos</span></div>
+      <p class="value-desc"><span data-lang="en">Opinions are cheap. Calculations aren't. Every recommendation we make is backed by real numbers from real gameplay — not Discord intuition.</span><span data-lang="es">Las opiniones son baratas. Los cálculos no. Cada recomendación está respaldada por números reales del juego — no por intuición de Discord.</span></p>
+    </div>
+    <div class="value-card reveal reveal-delay-3">
+      <span class="value-icon">🌍</span>
+      <div class="value-title"><span data-lang="en">Bilingual by Default</span><span data-lang="es">Bilingüe por Defecto</span></div>
+      <p class="value-desc"><span data-lang="en">All guides, tools, and community content available in English and Spanish. The Web3 gaming community is global — our infrastructure should be too.</span><span data-lang="es">Todas las guías, herramientas y contenido comunitario disponibles en inglés y español. La comunidad de gaming Web3 es global — nuestra infraestructura también debería serlo.</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-bg-text">FUEL</div>
+  <div class="cta-inner">
+    <div class="section-label reveal" style="justify-content:center">
+      <span data-lang="en">Get In Early</span>
+      <span data-lang="es">Entra Temprano</span>
+    </div>
+    <h2 class="cta-headline reveal reveal-delay-1">
+      <span data-lang="en">Law of the Abyss is launching.<br>We're already inside.</span>
+      <span data-lang="es">Law of the Abyss está lanzando.<br>Ya estamos adentro.</span>
+    </h2>
+    <p class="cta-sub reveal reveal-delay-2">
+      <span data-lang="en">Join the founding group. Get access to coordination tools, expert analysis, and a community that takes game economies seriously. No cost. No catch.</span>
+      <span data-lang="es">Únete al grupo fundador. Accede a herramientas de coordinación, análisis experto y una comunidad que toma en serio las economías de juego. Sin costo. Sin trampa.</span>
+    </p>
+    <div class="cta-btns reveal reveal-delay-3">
+      <a href="join.html" class="btn-primary"><span><span data-lang="en">Join Polaris Fuel →</span><span data-lang="es">Unirse a Polaris Fuel →</span></span></a>
+      <a href="roadmap.html" class="btn-ghost"><span data-lang="en">View Roadmap</span><span data-lang="es">Ver Hoja de Ruta</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo-text">Polaris Fuel</div>
+    <p class="footer-copy">© 2026 Polaris Fuel<br><span data-lang="en">Web3 Gaming Coordination Infrastructure.</span><span data-lang="es">Infraestructura de Coordinación Gaming Web3.</span></p>
+  </div>
+  <ul class="footer-nav">
+    <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a></li>
+    <li><a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a></li>
+    <li><a href="tools.html"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a></li>
+    <li><a href="resources.html"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a></li>
+    <li><a href="roadmap.html"><span data-lang="en">Roadmap</span><span data-lang="es">Hoja de Ruta</span></a></li>
+    <li><a href="join.html" style="color:var(--fire)"><span data-lang="en">Join Polaris Fuel</span><span data-lang="es">Únete a Polaris Fuel</span></a></li>
+    <li><a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer">Discord</a></li>
+    <li><a href="https://x.com/Polaris_Fuel" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+  </ul>
+  <div class="footer-token">$LOTA</div>
+</footer>
+
+<script>
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+function animCursor(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;if(cur){cur.style.left=mx+'px';cur.style.top=my+'px'}if(ring){ring.style.left=rx+'px';ring.style.top=ry+'px'}requestAnimationFrame(animCursor)}
+animCursor();
+const nb=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{if(nb)nb.classList.toggle('scrolled',window.scrollY>60)});
+const canvas=document.getElementById('particle-canvas');
+if(canvas){const ctx=canvas.getContext('2d');let W,H,particles=[];function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}resize();window.addEventListener('resize',resize);class P{constructor(){this.reset(true)}reset(init=false){this.x=Math.random()*W;this.y=init?Math.random()*H:H+10;this.size=Math.random()*1.8+.4;this.vy=-(Math.random()*.5+.15);this.vx=(Math.random()-.5)*.25;this.life=0;this.maxLife=Math.random()*180+80;this.hue=Math.random()*25+8}update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxLife||this.y<-10)this.reset()}draw(){const t=this.life/this.maxLife,a=t<.3?t/.3:1-((t-.3)/.7);ctx.save();ctx.globalAlpha=a*.65;ctx.fillStyle=`hsl(${this.hue},100%,60%)`;ctx.shadowBlur=5;ctx.shadowColor=`hsl(${this.hue},100%,60%)`;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.restore()}}
+for(let i=0;i<100;i++)particles.push(new P());function animP(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}animP()}
+const revEls=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
+revEls.forEach(el=>obs.observe(el));
+function setLang(lang){document.body.classList.toggle('lang-es',lang==='es');document.documentElement.lang=lang;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));const btn=document.querySelector('.lang-btn-'+lang);if(btn)btn.classList.add('active');document.querySelectorAll('select option[data-en]').forEach(opt=>{opt.textContent=lang==='es'?opt.dataset.es:opt.dataset.en});localStorage.setItem('pf-lang',lang)}
+const savedLang=localStorage.getItem('pf-lang');if(savedLang==='es')setLang('es');
+const ham=document.getElementById('hamburger'),mob=document.getElementById('mobile-menu');
+if(ham&&mob){ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}))}
+</script>
+</body>
+</html>
