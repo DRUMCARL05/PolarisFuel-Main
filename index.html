@@ -43,6 +43,21 @@ nav#navbar.scrolled{background:rgba(10,7,4,0.92);border-color:var(--border);back
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--fire);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-dropdown{position:relative}
+.nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px;display:flex;align-items:center;gap:.4rem;cursor:none}
+.nav-dropdown-trigger::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--fire);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav-dropdown-arrow{display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;transition:transform .25s,color .2s;margin-top:1px;flex-shrink:0}
+.nav-dropdown.open .nav-dropdown-trigger{color:var(--gold)}
+.nav-dropdown.open .nav-dropdown-trigger::after{transform:scaleX(1)}
+.nav-dropdown.open .nav-dropdown-arrow{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:170px;background:rgba(10,7,4,0.97);border:1px solid var(--border-bright);backdrop-filter:blur(18px);display:flex;flex-direction:column;opacity:0;pointer-events:none;padding-top:14px;transition:opacity .18s ease;z-index:300}
+.nav-dropdown-menu::before{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid var(--border-bright)}
+.nav-dropdown-menu::after{content:'';position:absolute;top:9px;left:50%;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid rgba(10,7,4,0.97)}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto}
+.nav-dropdown-menu a{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;padding:.7rem 1.1rem;border-bottom:1px solid var(--border);transition:color .2s,background .2s,padding-left .2s;white-space:nowrap;position:relative}
+.nav-dropdown-menu a:last-child{border-bottom:none}
+.nav-dropdown-menu a:hover{color:var(--gold);background:rgba(212,168,67,0.06);padding-left:1.4rem}
+.nav-dropdown-menu .drop-label{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;color:var(--fire);padding:.55rem 1.1rem .3rem;opacity:.75;pointer-events:none;border-bottom:1px solid var(--border)}
 .nav-right{display:flex;align-items:center;gap:1rem}
 .nav-discord-btn{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:.42rem .95rem;background:linear-gradient(135deg,var(--fire),var(--ember));color:#0A0704;text-decoration:none;font-weight:700;transition:transform .2s,box-shadow .2s;cursor:none}
 .nav-discord-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,107,26,0.4)}
@@ -199,9 +214,19 @@ div[data-lang]{display:none}
   <span class="mobile-menu-section"><span data-lang="en">Main</span><span data-lang="es">Principal</span></span>
   <a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
   <a href="join.html" style="color:var(--fire)"><span data-lang="en">Join Polaris Fuel</span><span data-lang="es">Únete a Polaris Fuel</span></a>
-  <span class="mobile-menu-section" style="margin-top:.5rem"><span data-lang="en">Games</span><span data-lang="es">Juegos</span></span>
-  <a href="https://valannia.polarisfuel.app">Valannia Realms</a>
-  <a href="https://lota.polarisfuel.app">Law of the Abyss</a>
+  <span class="mobile-menu-section" style="margin-top:.5rem"><span data-lang="en">Valannia Realms</span><span data-lang="es">Valannia Realms</span></span>
+  <a href="https://valannia.polarisfuel.app/index.html" style="font-size:.85rem"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+  <a href="https://valannia.polarisfuel.app/about.html" style="font-size:.85rem"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+  <a href="https://valannia.polarisfuel.app/tools.html" style="font-size:.85rem"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a>
+  <a href="https://valannia.polarisfuel.app/resources.html" style="font-size:.85rem"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a>
+  <a href="https://valannia.polarisfuel.app/join.html" style="font-size:.85rem;color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a>
+  <span class="mobile-menu-section" style="margin-top:.5rem"><span data-lang="en">Law of the Abyss</span><span data-lang="es">Law of the Abyss</span></span>
+  <a href="https://lota.polarisfuel.app/index.html" style="font-size:.85rem"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+  <a href="https://lota.polarisfuel.app/about.html" style="font-size:.85rem"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+  <a href="https://lota.polarisfuel.app/tools.html" style="font-size:.85rem"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a>
+  <a href="https://lota.polarisfuel.app/resources.html" style="font-size:.85rem"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a>
+  <a href="https://lota.polarisfuel.app/join.html" style="font-size:.85rem;color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a>
+  <span class="mobile-menu-section" style="margin-top:.5rem"><span data-lang="en">Star Atlas</span><span data-lang="es">Star Atlas</span></span>
   <a href="https://staratlas.polarisfuel.app">Star Atlas</a>
   <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="mobile-menu-discord">Discord</a>
   <div class="mobile-lang">
@@ -219,8 +244,28 @@ div[data-lang]{display:none}
   <ul class="nav-links">
     <li><a href="index.html" class="active"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a></li>
     <li><a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a></li>
-    <li><a href="https://valannia.polarisfuel.app">Valannia</a></li>
-    <li><a href="https://lota.polarisfuel.app">LOTA</a></li>
+    <li class="nav-dropdown">
+      <span class="nav-dropdown-trigger">Valannia<span class="nav-dropdown-arrow"></span></span>
+      <div class="nav-dropdown-menu">
+        <span class="drop-label">Valannia Realms</span>
+        <a href="https://valannia.polarisfuel.app/index.html"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+        <a href="https://valannia.polarisfuel.app/about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+        <a href="https://valannia.polarisfuel.app/tools.html"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a>
+        <a href="https://valannia.polarisfuel.app/resources.html"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a>
+        <a href="https://valannia.polarisfuel.app/join.html" style="color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <span class="nav-dropdown-trigger">LOTA<span class="nav-dropdown-arrow"></span></span>
+      <div class="nav-dropdown-menu">
+        <span class="drop-label">Law of the Abyss</span>
+        <a href="https://lota.polarisfuel.app/index.html"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+        <a href="https://lota.polarisfuel.app/about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+        <a href="https://lota.polarisfuel.app/tools.html"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a>
+        <a href="https://lota.polarisfuel.app/resources.html"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a>
+        <a href="https://lota.polarisfuel.app/join.html" style="color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a>
+      </div>
+    </li>
     <li><a href="join.html" style="color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a></li>
   </ul>
   <div class="nav-right">
@@ -554,6 +599,16 @@ function setLang(lang){document.body.classList.toggle('lang-es',lang==='es');doc
 const savedLang=localStorage.getItem('pf-lang');if(savedLang==='es')setLang('es');
 const ham=document.getElementById('hamburger'),mob=document.getElementById('mobile-menu');
 if(ham&&mob){ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}))}
+// Dropdowns — use a close delay so the mouse can travel into the menu
+document.querySelectorAll('.nav-dropdown').forEach(dd=>{
+  let closeTimer;
+  const open=()=>{clearTimeout(closeTimer);dd.classList.add('open')};
+  const close=()=>{closeTimer=setTimeout(()=>dd.classList.remove('open'),120)};
+  dd.addEventListener('mouseenter',open);
+  dd.addEventListener('mouseleave',close);
+  dd.querySelector('.nav-dropdown-menu').addEventListener('mouseenter',open);
+  dd.querySelector('.nav-dropdown-menu').addEventListener('mouseleave',close);
+});
 </script>
 </body>
 </html>
