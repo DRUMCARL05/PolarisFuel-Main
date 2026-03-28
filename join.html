@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://polarisfuel.app/join.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FF6B1A">
+<meta name="description" content="Join Polaris Fuel — Web3 gaming's economic coordination infrastructure. Guild coordination, resource arbitrage, and political consulting across blockchain game ecosystems.">
+<meta property="og:title" content="Join Polaris Fuel — Fire &amp; Metal Logistics">
+<meta property="og:description" content="We don't play games. We run the economy behind them. Join the organization.">
+<meta property="og:image" content="https://polarisfuel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Join — Polaris Fuel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fire: #FF6B1A;
+  --ember: #FF9A00;
+  --gold: #D4A843;
+  --gold-pale: #e8cc7a;
+  --dark: #0A0704;
+  --dark-mid: #120C05;
+  --dark-surface: #1A1008;
+  --dark-card: #1F1409;
+  --text: #D4C4A8;
+  --text-dim: #7A6A54;
+  --border: rgba(212,168,67,0.15);
+  --border-bright: rgba(212,168,67,0.4);
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background: var(--dark);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 1; opacity: 0.5;
+}
+
+/* ── CURSOR ── */
+#cursor { position:fixed;top:0;left:0;width:10px;height:10px;background:var(--fire);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:screen }
+#cursor-ring { position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid rgba(255,107,26,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s }
+body:has(a:hover) #cursor,body:has(button:hover) #cursor { width:18px;height:18px;background:var(--ember) }
+body:has(a:hover) #cursor-ring,body:has(button:hover) #cursor-ring { width:48px;height:48px;border-color:var(--gold) }
+
+/* ── PARTICLE CANVAS ── */
+#particle-canvas { position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.55 }
+
+/* ── SKIP LINK ── */
+.skip-link { position:absolute;top:-100px;left:1rem;background:var(--fire);color:#0A0704;padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;z-index:10000;transition:top .2s }
+.skip-link:focus { top:1rem }
+
+/* ── MOBILE MENU ── */
+.mobile-menu { display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,7,4,0.98);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem }
+.mobile-menu.open { display:flex }
+.mobile-menu a { font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s }
+.mobile-menu a:hover { color:var(--gold) }
+.mobile-menu-discord { font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 2rem;background:linear-gradient(135deg,var(--fire),var(--ember));color:#0A0704;text-decoration:none;font-weight:700;margin-top:1rem }
+.mobile-lang { display:flex;gap:.6rem;margin-top:.5rem }
+
+/* ── NAV ── */
+nav#navbar { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;border-bottom:1px solid transparent;transition:background .4s,border-color .4s,backdrop-filter .4s }
+nav#navbar.scrolled { background:rgba(10,7,4,0.92);border-color:var(--border);backdrop-filter:blur(14px) }
+.nav-logo { display:flex;align-items:center;gap:.5rem;text-decoration:none }
+.nav-logo-text { font-family:'Cinzel',serif;font-size:.82rem;font-weight:600;letter-spacing:.2em;color:var(--gold);text-transform:uppercase }
+.nav-links { display:flex;align-items:center;gap:2rem;list-style:none }
+.nav-links a { font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px }
+.nav-links a::after { content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--fire);transform:scaleX(0);transform-origin:left;transition:transform .3s }
+.nav-links a:hover,.nav-links a.active { color:var(--gold) }
+.nav-links a:hover::after,.nav-links a.active::after { transform:scaleX(1) }
+.nav-right { display:flex;align-items:center;gap:1rem }
+.nav-discord-btn { font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:.42rem .95rem;background:linear-gradient(135deg,var(--fire),var(--ember));color:#0A0704;text-decoration:none;font-weight:700;transition:transform .2s,box-shadow .2s;cursor:none }
+.nav-discord-btn:hover { transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,107,26,0.4) }
+.nav-lang { display:flex;gap:.4rem }
+.lang-btn { font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.14em;padding:.26rem .52rem;background:transparent;border:1px solid var(--border);color:var(--text-dim);cursor:none;transition:all .2s }
+.lang-btn.active,.lang-btn:hover { border-color:var(--gold);color:var(--gold);background:rgba(212,168,67,0.08) }
+.nav-hamburger { display:none;flex-direction:column;gap:5px;cursor:none;padding:4px;background:none;border:none }
+.nav-hamburger span { display:block;width:24px;height:1px;background:var(--gold);transition:all .3s }
+.nav-hamburger.open span:nth-child(1) { transform:translateY(6px) rotate(45deg) }
+.nav-hamburger.open span:nth-child(2) { opacity:0 }
+.nav-hamburger.open span:nth-child(3) { transform:translateY(-6px) rotate(-45deg) }
+
+/* ── COMMON ── */
+section,footer { position:relative;z-index:2 }
+.reveal { opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease }
+.reveal.visible { opacity:1;transform:translateY(0) }
+.reveal-delay-1 { transition-delay:.1s }.reveal-delay-2 { transition-delay:.2s }.reveal-delay-3 { transition-delay:.3s }.reveal-delay-4 { transition-delay:.4s }
+
+.section-label { font-family:'Cinzel',serif;font-size:.57rem;letter-spacing:.4em;text-transform:uppercase;color:var(--fire);margin-bottom:1.8rem;display:flex;align-items:center;gap:1rem }
+.section-label::before,.section-label::after { content:'';display:block;width:26px;height:1px;background:var(--fire) }
+.section-title { font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--gold-pale);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem }
+.section-sub { font-size:.92rem;color:var(--text-dim);line-height:1.9;max-width:500px }
+.divider { width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border-bright),transparent);margin:0 }
+.phase-badge { display:inline-flex;align-items:center;gap:.5rem;font-family:'Cinzel',serif;font-size:.53rem;letter-spacing:.25em;text-transform:uppercase;padding:.32rem .85rem;border:1px solid rgba(255,107,26,0.4);color:var(--fire);background:rgba(255,107,26,0.06) }
+.phase-badge::before { content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--fire);animation:pulseDot 1.5s ease-in-out infinite }
+@keyframes pulseDot { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.65)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
+
+.btn-primary { font-family:'Cinzel',serif;font-size:.67rem;letter-spacing:.25em;text-transform:uppercase;padding:.95rem 2rem;background:linear-gradient(135deg,var(--fire),var(--ember));color:#0A0704;border:none;text-decoration:none;display:inline-block;font-weight:700;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:none }
+.btn-primary::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--ember),var(--gold));opacity:0;transition:opacity .3s }
+.btn-primary:hover { transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,26,0.4) }
+.btn-primary:hover::before { opacity:1 }
+.btn-primary span { position:relative;z-index:1 }
+.btn-ghost { font-family:'Cinzel',serif;font-size:.67rem;letter-spacing:.25em;text-transform:uppercase;padding:.95rem 2rem;background:transparent;color:var(--gold);border:1px solid var(--border-bright);text-decoration:none;display:inline-block;transition:all .3s;cursor:none }
+.btn-ghost:hover { background:rgba(212,168,67,0.08);border-color:var(--gold);color:var(--gold-pale);transform:translateY(-2px) }
+
+/* ── LANG SWITCH ── */
+body span[data-lang] { display:none }
+body:not(.lang-es) span[data-lang="en"] { display:inline }
+body.lang-es span[data-lang="es"] { display:inline }
+body:not(.lang-es) div[data-lang="en"] { display:block }
+body.lang-es div[data-lang="es"] { display:block }
+div[data-lang] { display:none }
+
+/* ── FOOTER ── */
+footer { padding:3rem;border-top:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:2rem }
+.footer-logo-text { font-family:'Cinzel',serif;font-size:.78rem;font-weight:600;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem }
+.footer-copy { font-size:.75rem;color:var(--text-dim);line-height:1.8 }
+.footer-nav { list-style:none;display:flex;flex-direction:column;gap:.6rem }
+.footer-nav a { font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s }
+.footer-nav a:hover { color:var(--gold) }
+.footer-token { font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:rgba(212,168,67,0.15);letter-spacing:.15em;align-self:flex-end }
+
+/* ═══════════════════════════════════
+   PAGE-SPECIFIC STYLES
+═══════════════════════════════════ */
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute; top:50%; left:50%;
+  transform: translate(-50%,-50%);
+  width: 900px; height: 700px;
+  background: radial-gradient(ellipse, rgba(255,107,26,0.11) 0%, transparent 65%);
+  animation: pulseGlow 5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes pulseGlow {
+  0%,100% { opacity:.7;transform:translate(-50%,-50%) scale(1) }
+  50% { opacity:1;transform:translate(-50%,-50%) scale(1.08) }
+}
+
+.hero-emblem {
+  width: clamp(160px, 28vw, 300px);
+  height: auto;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 28px rgba(255,107,26,0.55)) drop-shadow(0 0 60px rgba(255,154,0,0.2));
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp .8s .15s forwards;
+}
+
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 1.8rem;
+  opacity: 0;
+  animation: fadeUp .8s .35s forwards;
+  display: flex; align-items: center; gap: 1rem;
+}
+.hero-eyebrow::before,.hero-eyebrow::after { content:'';display:inline-block;width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--border-bright)) }
+.hero-eyebrow::after { background:linear-gradient(90deg,var(--border-bright),transparent) }
+
+.hero-tagline {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: var(--gold-pale);
+  letter-spacing: .04em;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeUp .8s .5s forwards;
+  line-height: 1.1;
+}
+.hero-tagline em { font-style: normal; color: var(--fire) }
+
+.hero-sub {
+  font-size: 1.02rem;
+  line-height: 1.9;
+  color: var(--text-dim);
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  opacity: 0;
+  animation: fadeUp .8s .7s forwards;
+}
+
+.hero-ctas {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .8s .9s forwards;
+}
+
+/* ── WHO WE ARE ── */
+#who {
+  padding: 8rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.who-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.who-pillar {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  background: var(--dark-card);
+  transition: border-color .3s, background .3s;
+  position: relative;
+}
+.who-pillar::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--fire);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .4s ease;
+}
+.who-pillar:hover::before { transform: scaleY(1) }
+.who-pillar:hover { border-color: rgba(255,107,26,0.3); background: #1c1008 }
+.who-pillar + .who-pillar { border-top: none }
+
+.pillar-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgba(255,107,26,0.2);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+}
+.pillar-content h3 {
+  font-family: 'Cinzel', serif;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--gold-pale);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: .6rem;
+}
+.pillar-content p {
+  font-size: .87rem;
+  line-height: 1.85;
+  color: var(--text-dim);
+}
+
+.who-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.who-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.who-stat {
+  background: var(--dark-card);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.who-stat-num {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--fire);
+  display: block;
+  margin-bottom: .4rem;
+}
+.who-stat-label {
+  font-family: 'Cinzel', serif;
+  font-size: .5rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.who-quote {
+  padding: 2rem;
+  border-left: 2px solid var(--fire);
+  background: rgba(255,107,26,0.04);
+}
+.who-quote p {
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: .04em;
+  line-height: 1.9;
+}
+.who-quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: .55rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--fire);
+  font-style: normal;
+  opacity: .8;
+}
+
+/* ── ROLES ── */
+#roles {
+  padding: 8rem 2rem;
+  text-align: center;
+  background: linear-gradient(to bottom, var(--dark), #0e0905, var(--dark));
+}
+
+#roles .section-label { justify-content: center }
+#roles .section-title { max-width: 700px; margin: 0 auto 1.5rem }
+
+.roles-intro {
+  font-size: .92rem;
+  color: var(--text-dim);
+  line-height: 1.9;
+  max-width: 640px;
+  margin: 0 auto 4rem;
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+}
+
+.role-card {
+  background: var(--dark-card);
+  padding: 2.5rem 2rem;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: background .4s;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+.role-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--fire), transparent);
+  transform: scaleX(0);
+  transition: transform .4s;
+}
+.role-card:hover::after { transform: scaleX(1) }
+.role-card:hover { background: #201309 }
+
+.role-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 10px rgba(255,107,26,0.4));
+}
+.role-title {
+  font-family: 'Cinzel', serif;
+  font-size: .88rem;
+  font-weight: 900;
+  color: var(--gold-pale);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.role-tag {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: .48rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  padding: .2rem .6rem;
+  border: 1px solid rgba(255,107,26,0.35);
+  color: var(--fire);
+  background: rgba(255,107,26,0.06);
+  width: fit-content;
+}
+.role-tag.open { border-color: var(--border);color:var(--text-dim);background:transparent }
+.role-desc {
+  font-size: .85rem;
+  line-height: 1.85;
+  color: var(--text-dim);
+  flex: 1;
+}
+.role-cta {
+  font-family: 'Cinzel', serif;
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--fire);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .5rem;
+  transition: color .2s, gap .2s;
+  cursor: none;
+}
+.role-cta::after { content: '→' }
+.role-cta:hover { color: var(--ember); gap: .8rem }
+
+/* ── WHY ── */
+#why {
+  padding: 8rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+#why .section-label { justify-content: center }
+#why .section-title { max-width: 700px; margin: 0 auto 1.5rem }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+  text-align: left;
+}
+.why-item {
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--border);
+  background: var(--dark-card);
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, background .3s;
+}
+.why-item:hover { border-color: rgba(255,107,26,0.3); background: #1c1008 }
+.why-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(255,107,26,0.15);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+.why-item h3 {
+  font-family: 'Cinzel', serif;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--gold-pale);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.why-item p {
+  font-size: .87rem;
+  line-height: 1.85;
+  color: var(--text-dim);
+}
+
+/* ── APPLY ── */
+#apply {
+  padding: 8rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: clip;
+}
+
+.apply-bg-text {
+  position: absolute; top:50%; left:50%;
+  transform: translate(-50%,-50%);
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(4rem, 16vw, 12rem);
+  font-weight: 900;
+  color: rgba(255,107,26,0.04);
+  white-space: nowrap;
+  pointer-events: none; user-select: none;
+}
+
+.apply-inner { max-width: 680px; margin: 0 auto; position: relative; }
+
+.apply-form {
+  margin: 3.5rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.form-group label {
+  font-family: 'Cinzel', serif;
+  font-size: .56rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--dark-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  font-size: .9rem;
+  padding: .9rem 1.2rem;
+  outline: none;
+  transition: border-color .3s, background .3s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(255,107,26,0.6);
+  background: #1c1008;
+}
+.form-group select option { background: var(--dark-mid) }
+.form-group textarea { resize: vertical; min-height: 110px; line-height: 1.7 }
+
+.submit-btn {
+  font-family: 'Cinzel', serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  padding: 1.1rem 3rem;
+  background: linear-gradient(135deg, var(--fire), var(--ember));
+  color: #0A0704;
+  border: none;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+  align-self: center;
+  margin-top: .5rem;
+}
+.submit-btn::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--ember),var(--gold));opacity:0;transition:opacity .3s }
+.submit-btn:hover { transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,26,0.4) }
+.submit-btn:hover::before { opacity:1 }
+.submit-btn span { position:relative;z-index:1 }
+.submit-btn:disabled { opacity:.5;cursor:default }
+
+.form-success {
+  display: none;
+  padding: 2.5rem;
+  border: 1px solid rgba(255,107,26,0.4);
+  background: rgba(255,107,26,0.06);
+  text-align: center;
+}
+.form-success.visible { display: block }
+.form-success h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold-pale);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.form-success p { font-size: .9rem; color: var(--text-dim); line-height: 1.8 }
+
+.form-alt {
+  margin-top: 2.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  line-height: 2;
+}
+.form-alt a { color: var(--fire); text-decoration: none }
+.form-alt a:hover { color: var(--ember) }
+
+.social-strip { display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem }
+.social-link { display:flex;align-items:center;gap:.7rem;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;padding:.6rem 1.4rem;border:1px solid var(--border);transition:all .3s;cursor:none }
+.social-link:hover { border-color:var(--gold);color:var(--gold);background:rgba(212,168,67,0.06) }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px) {
+  nav#navbar { padding:1rem 1.5rem }
+  .nav-links,.nav-discord-btn,.nav-lang { display:none }
+  .nav-hamburger { display:flex }
+  #who { grid-template-columns:1fr;gap:3rem }
+  .roles-grid { grid-template-columns:1fr }
+  .why-grid { grid-template-columns:1fr }
+  .form-row { grid-template-columns:1fr }
+}
+@media(max-width:600px) {
+  #cursor,#cursor-ring { display:none }
+  body { cursor:auto }
+  a,button { cursor:auto }
+  footer { flex-direction:column }
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">
+  <span data-lang="en">Skip to content</span>
+  <span data-lang="es">Ir al contenido</span>
+</a>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="particle-canvas"></canvas>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
+  <a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+  <a href="tools.html"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a>
+  <a href="resources.html"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a>
+  <a href="roadmap.html"><span data-lang="en">Roadmap</span><span data-lang="es">Hoja de Ruta</span></a>
+  <a href="join.html" style="color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a>
+  <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="mobile-menu-discord">Discord</a>
+  <div class="mobile-lang">
+    <button class="lang-btn active lang-btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn lang-btn-es" onclick="setLang('es')">ES</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-text">Polaris Fuel</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a></li>
+    <li><a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a></li>
+    <li><a href="tools.html"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a></li>
+    <li><a href="resources.html"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a></li>
+    <li><a href="roadmap.html"><span data-lang="en">Roadmap</span><span data-lang="es">Hoja de Ruta</span></a></li>
+    <li><a href="join.html" class="active" style="color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="nav-discord-btn">Discord</a>
+    <div class="nav-lang">
+      <button class="lang-btn active lang-btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn lang-btn-es" onclick="setLang('es')">ES</button>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <img src="emblem.png" alt="Polaris Fuel emblem" class="hero-emblem">
+
+  <div class="hero-eyebrow">
+    <span data-lang="en">Fire &amp; Metal Logistics · Open to All Players</span>
+    <span data-lang="es">Fire &amp; Metal Logistics · Abierto a Todos los Jugadores</span>
+  </div>
+
+  <h1 class="hero-tagline">
+    <span data-lang="en">A community built around<br><em>the games that matter.</em></span>
+    <span data-lang="es">Una comunidad construida<br><em>alrededor de los juegos que importan.</em></span>
+  </h1>
+
+  <p class="hero-sub">
+    <span data-lang="en">Polaris Fuel builds player communities around the games we work with — through guides, tools, coordination, and education. Whether you're a casual player or deep in game economics, there's a place for you here.</span>
+    <span data-lang="es">Polaris Fuel construye comunidades de jugadores alrededor de los juegos con los que trabajamos — mediante guías, herramientas, coordinación y educación. Ya seas un jugador casual o profundamente interesado en la economía del juego, hay un lugar para ti aquí.</span>
+  </p>
+
+  <div class="hero-ctas">
+    <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="btn-primary"><span><span data-lang="en">Join our Discord →</span><span data-lang="es">Únete a nuestro Discord →</span></span></a>
+    <a href="#roles" class="btn-ghost"><span data-lang="en">See who we're looking for</span><span data-lang="es">Ver a quién buscamos</span></a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ WHO WE ARE ═══ -->
+<section id="who" style="padding:8rem 2rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+
+  <div>
+    <div class="section-label reveal">
+      <span data-lang="en">The Organization</span>
+      <span data-lang="es">La Organización</span>
+    </div>
+    <h2 class="section-title reveal reveal-delay-1">
+      <span data-lang="en">Built on logistics,<br>not hype.</span>
+      <span data-lang="es">Construido sobre logística,<br>no sobre hype.</span>
+    </h2>
+    <p class="section-sub reveal reveal-delay-2" style="margin-bottom:2.5rem">
+      <span data-lang="en">Founded in 2022, Polaris Fuel builds and supports player communities across the games we work with. We focus on education, tools, and coordination — helping players get more out of the games they love, from casual to competitive to economy-focused play.</span>
+      <span data-lang="es">Fundado en 2022, Polaris Fuel construye y apoya comunidades de jugadores en los juegos con los que trabajamos. Nos enfocamos en educación, herramientas y coordinación — ayudando a los jugadores a sacar más partido de los juegos que aman, desde el juego casual hasta el competitivo y el orientado a la economía.</span>
+    </p>
+
+    <div class="who-pillars">
+      <div class="who-pillar reveal reveal-delay-2">
+        <div class="pillar-num">01</div>
+        <div class="pillar-content">
+          <h3><span data-lang="en">Education First</span><span data-lang="es">Educación Primero</span></h3>
+          <p>
+            <span data-lang="en">We produce guides, explainers, and resources that help players understand the games we support — mechanics, economies, strategy, and everything in between.</span>
+            <span data-lang="es">Producimos guías, explainers y recursos que ayudan a los jugadores a entender los juegos que apoyamos — mecánicas, economías, estrategia y todo lo que hay entre medio.</span>
+          </p>
+        </div>
+      </div>
+      <div class="who-pillar reveal reveal-delay-3">
+        <div class="pillar-num">02</div>
+        <div class="pillar-content">
+          <h3><span data-lang="en">Tools &amp; Automation</span><span data-lang="es">Herramientas y Automatización</span></h3>
+          <p>
+            <span data-lang="en">We build the infrastructure that makes coordination easier — from resource tracking and trade tooling to wallet management for players who want to go deeper into game economies.</span>
+            <span data-lang="es">Construimos la infraestructura que facilita la coordinación — desde el seguimiento de recursos y herramientas de intercambio hasta la gestión de wallets para jugadores que quieren profundizar en las economías del juego.</span>
+          </p>
+        </div>
+      </div>
+      <div class="who-pillar reveal reveal-delay-4">
+        <div class="pillar-num">03</div>
+        <div class="pillar-content">
+          <h3><span data-lang="en">Community &amp; Coordination</span><span data-lang="es">Comunidad y Coordinación</span></h3>
+          <p>
+            <span data-lang="en">We connect players — coordinating group activity, trade, and strategy across the games we operate in. Strong communities compound. We build them intentionally.</span>
+            <span data-lang="es">Conectamos jugadores — coordinando actividad grupal, intercambios y estrategia en los juegos en los que operamos. Las comunidades fuertes se multiplican. Las construimos con intención.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="who-visual">
+    <div class="who-stat-grid reveal reveal-delay-1">
+      <div class="who-stat">
+        <span class="who-stat-num">2022</span>
+        <span class="who-stat-label"><span data-lang="en">Founded</span><span data-lang="es">Fundado</span></span>
+      </div>
+      <div class="who-stat">
+        <span class="who-stat-num">3+</span>
+        <span class="who-stat-label"><span data-lang="en">Active Games</span><span data-lang="es">Juegos Activos</span></span>
+      </div>
+      <div class="who-stat">
+        <span class="who-stat-num">1</span>
+        <span class="who-stat-label"><span data-lang="en">Signed Studio</span><span data-lang="es">Estudio Firmado</span></span>
+      </div>
+      <div class="who-stat">
+        <span class="who-stat-num">∞</span>
+        <span class="who-stat-label"><span data-lang="en">Compounding Edge</span><span data-lang="es">Ventaja Acumulada</span></span>
+      </div>
+    </div>
+
+    <div class="who-quote reveal reveal-delay-2">
+      <p>
+        <span data-lang="en">The team that owns the supply chain owns the negotiating table. We're building that position from launch — not catching up to it afterward.</span>
+        <span data-lang="es">El equipo que controla la cadena de suministro controla la mesa de negociación. Construimos esa posición desde el lanzamiento, no intentamos alcanzarla después.</span>
+      </p>
+      <cite>Polaris Fuel · Fire &amp; Metal Logistics</cite>
+    </div>
+
+    <div class="reveal reveal-delay-3" style="padding:2rem;border:1px solid var(--border);background:var(--dark-card)">
+      <div class="phase-badge" style="margin-bottom:1rem">
+        <span data-lang="en">Actively Recruiting</span>
+        <span data-lang="es">Reclutando Activamente</span>
+      </div>
+      <p style="font-size:.87rem;line-height:1.85;color:var(--text-dim)">
+        <span data-lang="en">We're growing our player community across multiple game ecosystems. New games, new guides, new coordination opportunities — all open to anyone who wants to be part of it.</span>
+        <span data-lang="es">Estamos haciendo crecer nuestra comunidad de jugadores en múltiples ecosistemas de juego. Nuevos juegos, nuevas guías, nuevas oportunidades de coordinación — abierto a cualquiera que quiera ser parte de ello.</span>
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ WHO'S THIS FOR ═══ -->
+<section id="roles">
+  <div class="section-label reveal" style="justify-content:center">
+    <span data-lang="en">Join the Community</span>
+    <span data-lang="es">Únete a la Comunidad</span>
+  </div>
+  <h2 class="section-title reveal reveal-delay-1" style="max-width:700px;margin:0 auto 1.2rem">
+    <span data-lang="en">There's a place here<br>for every kind of player.</span>
+    <span data-lang="es">Aquí hay un lugar<br>para cada tipo de jugador.</span>
+  </h2>
+  <p class="roles-intro reveal reveal-delay-2">
+    <span data-lang="en">Whether you're just starting out, play for fun, or go deep on game economies — you belong here. We support players across web2 and web3 games with guides, tools, and a community that takes gaming seriously.</span>
+    <span data-lang="es">Ya sea que estés comenzando, juegues por diversión o te sumerjas en las economías del juego — tienes un lugar aquí. Apoyamos a jugadores en juegos web2 y web3 con guías, herramientas y una comunidad que se toma el gaming en serio.</span>
+  </p>
+
+  <div class="roles-grid">
+
+    <div class="role-card reveal">
+      <span class="role-icon">🎮</span>
+      <div class="role-title"><span data-lang="en">The Casual Player</span><span data-lang="es">El Jugador Casual</span></div>
+      <span class="role-tag">
+        <span data-lang="en">★ Always Welcome</span>
+        <span data-lang="es">★ Siempre Bienvenido</span>
+      </span>
+      <p class="role-desc">
+        <span data-lang="en">You play for fun. You want a good community, useful guides, and people to coordinate with — nothing more complicated than that. Our Discord is a low-pressure space where you can enjoy the game at your own pace.</span>
+        <span data-lang="es">Juegas por diversión. Quieres una buena comunidad, guías útiles y personas con quienes coordinar — nada más complicado que eso. Nuestro Discord es un espacio sin presión donde puedes disfrutar el juego a tu propio ritmo.</span>
+      </p>
+      <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="role-cta"><span data-lang="en">Join the Discord</span><span data-lang="es">Unirse al Discord</span></a>
+    </div>
+
+    <div class="role-card reveal reveal-delay-1">
+      <span class="role-icon">📚</span>
+      <div class="role-title"><span data-lang="en">The New Player</span><span data-lang="es">El Jugador Nuevo</span></div>
+      <span class="role-tag">
+        <span data-lang="en">★ Always Welcome</span>
+        <span data-lang="es">★ Siempre Bienvenido</span>
+      </span>
+      <p class="role-desc">
+        <span data-lang="en">Just getting started? Good — we build guides for this. The games we support have a lot going on, and we make it easier to understand the mechanics, find your footing, and get up to speed faster than going it alone.</span>
+        <span data-lang="es">¿Recién comenzando? Bien — construimos guías para esto. Los juegos que apoyamos tienen mucho que ofrecer, y facilitamos entender las mecánicas, encontrar tu camino y ponerte al día más rápido que si lo hicieras solo.</span>
+      </p>
+      <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="role-cta"><span data-lang="en">Join the Discord</span><span data-lang="es">Unirse al Discord</span></a>
+    </div>
+
+    <div class="role-card reveal reveal-delay-2">
+      <span class="role-icon">⚔️</span>
+      <div class="role-title"><span data-lang="en">The Competitive Player</span><span data-lang="es">El Jugador Competitivo</span></div>
+      <span class="role-tag open">
+        <span data-lang="en">Open</span>
+        <span data-lang="es">Abierto</span>
+      </span>
+      <p class="role-desc">
+        <span data-lang="en">You play to win. You research the meta, optimize your build, and want teammates who take it as seriously as you do. Polaris Fuel coordinates group strategy across the games we support — join if you want organized, high-effort play.</span>
+        <span data-lang="es">Juegas para ganar. Investigas el meta, optimizas tu build y quieres compañeros que se lo tomen tan en serio como tú. Polaris Fuel coordina estrategia grupal en los juegos que apoyamos — únete si quieres un juego organizado y de alto rendimiento.</span>
+      </p>
+      <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="role-cta"><span data-lang="en">Join the Discord</span><span data-lang="es">Unirse al Discord</span></a>
+    </div>
+
+    <div class="role-card reveal reveal-delay-1">
+      <span class="role-icon">⚗️</span>
+      <div class="role-title"><span data-lang="en">The Economy Player</span><span data-lang="es">El Jugador Económico</span></div>
+      <span class="role-tag open">
+        <span data-lang="en">Open</span>
+        <span data-lang="es">Abierto</span>
+      </span>
+      <p class="role-desc">
+        <span data-lang="en">You're drawn to the market side — crafting, trading, resource management, player economies. In games with on-chain elements, you go even deeper. We coordinate exactly this kind of play and build tools to support it.</span>
+        <span data-lang="es">Te atrae el lado de mercado — crafteo, intercambio, gestión de recursos, economías de jugadores. En juegos con elementos on-chain, vas aún más profundo. Coordinamos exactamente este tipo de juego y construimos herramientas para apoyarlo.</span>
+      </p>
+      <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="role-cta"><span data-lang="en">Join the Discord</span><span data-lang="es">Unirse al Discord</span></a>
+    </div>
+
+    <div class="role-card reveal reveal-delay-2">
+      <span class="role-icon">🤝</span>
+      <div class="role-title"><span data-lang="en">The Trader &amp; Networker</span><span data-lang="es">El Trader y Networker</span></div>
+      <span class="role-tag open">
+        <span data-lang="en">Open</span>
+        <span data-lang="es">Abierto</span>
+      </span>
+      <p class="role-desc">
+        <span data-lang="en">You enjoy the social side of games — trading, brokering deals, building relationships with other players. You know that in any game with a real economy, who you know matters as much as what you have.</span>
+        <span data-lang="es">Disfrutas el lado social de los juegos — comerciar, cerrar acuerdos, construir relaciones con otros jugadores. Sabes que en cualquier juego con una economía real, a quién conoces importa tanto como lo que tienes.</span>
+      </p>
+      <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="role-cta"><span data-lang="en">Join the Discord</span><span data-lang="es">Unirse al Discord</span></a>
+    </div>
+
+    <div class="role-card reveal reveal-delay-3">
+      <span class="role-icon">✍️</span>
+      <div class="role-title"><span data-lang="en">The Content Creator</span><span data-lang="es">El Creador de Contenido</span></div>
+      <span class="role-tag open">
+        <span data-lang="en">Open</span>
+        <span data-lang="es">Abierto</span>
+      </span>
+      <p class="role-desc">
+        <span data-lang="en">You make guides, videos, streams, or write-ups about games you love. Polaris Fuel is a home for creators who care about helping other players — not just chasing views. Accuracy and depth matter here.</span>
+        <span data-lang="es">Creas guías, videos, streams o artículos sobre los juegos que amas. Polaris Fuel es un hogar para creadores que se preocupan por ayudar a otros jugadores — no solo por conseguir vistas. La precisión y la profundidad importan aquí.</span>
+      </p>
+      <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="role-cta"><span data-lang="en">Join the Discord</span><span data-lang="es">Unirse al Discord</span></a>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ WHY ═══ -->
+<section id="why">
+  <div class="section-label reveal" style="justify-content:center">
+    <span data-lang="en">Why Polaris Fuel</span>
+    <span data-lang="es">Por Qué Polaris Fuel</span>
+  </div>
+  <h2 class="section-title reveal reveal-delay-1" style="max-width:700px;margin:0 auto 1rem">
+    <span data-lang="en">The case for builders over fighters.</span>
+    <span data-lang="es">El caso de los constructores sobre los luchadores.</span>
+  </h2>
+  <p style="font-size:.92rem;color:var(--text-dim);line-height:1.9;max-width:600px;margin:0 auto;opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;transition-delay:.2s" class="reveal reveal-delay-2">
+    <span data-lang="en">Most guilds recruit for combat power. We recruit for chain coverage. Here's what that means in practice.</span>
+    <span data-lang="es">La mayoría de los gremios reclutan por poder de combate. Nosotros reclutamos por cobertura de cadena. Esto es lo que eso significa en la práctica.</span>
+  </p>
+
+  <div class="why-grid">
+    <div class="why-item reveal">
+      <div class="why-num">01</div>
+      <h3><span data-lang="en">A Defined Role</span><span data-lang="es">Un Rol Definido</span></h3>
+      <p>
+        <span data-lang="en">You join with a specific function and a specific output. No vague "contribute to the community" requirements. Your work moves resources through the chain and generates value for everyone in it.</span>
+        <span data-lang="es">Te unes con una función específica y un resultado específico. Sin requisitos vagos de "contribuir a la comunidad". Tu trabajo mueve recursos por la cadena y genera valor para todos.</span>
+      </p>
+    </div>
+    <div class="why-item reveal reveal-delay-1">
+      <div class="why-num">02</div>
+      <h3><span data-lang="en">Real Economic Leverage</span><span data-lang="es">Apalancamiento Económico Real</span></h3>
+      <p>
+        <span data-lang="en">We target the supply chains that every player depends on. Control over critical resources isn't just profitable — it's the negotiating position that shapes how the whole server plays. We build that position intentionally.</span>
+        <span data-lang="es">Apuntamos a las cadenas de suministro de las que depende cada jugador. El control sobre recursos críticos no solo es rentable — es la posición negociadora que define cómo juega todo el servidor.</span>
+      </p>
+    </div>
+    <div class="why-item reveal reveal-delay-2">
+      <div class="why-num">03</div>
+      <h3><span data-lang="en">Builder Culture</span><span data-lang="es">Cultura de Constructores</span></h3>
+      <p>
+        <span data-lang="en">No hype. No overpromising. We've survived a full Web3 cycle and we're still here because we prioritize genuine value over speculation. If you want a team that executes quietly and compounds — this is it.</span>
+        <span data-lang="es">Sin hype. Sin promesas exageradas. Sobrevivimos un ciclo Web3 completo y seguimos aquí porque priorizamos el valor genuino sobre la especulación. Si buscas un equipo que ejecuta en silencio y acumula ventaja — este es.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ APPLY ═══ -->
+<section id="apply">
+  <div class="apply-bg-text">JOIN</div>
+  <div class="apply-inner">
+    <div class="section-label reveal" style="justify-content:center">
+      <span data-lang="en">Get Involved</span>
+      <span data-lang="es">Participa</span>
+    </div>
+    <h2 class="section-title reveal reveal-delay-1" style="max-width:100%">
+      <span data-lang="en">Start in Discord.<br>Everything else follows.</span>
+      <span data-lang="es">Empieza en Discord.<br>Lo demás viene solo.</span>
+    </h2>
+    <p style="font-size:.92rem;color:var(--text-dim);line-height:1.9;max-width:520px;margin:0 auto 2.5rem" class="reveal reveal-delay-2">
+      <span data-lang="en">The fastest way in is our Discord. Introduce yourself, ask questions, and see what we're building. If you'd prefer to reach out directly, the form below works too.</span>
+      <span data-lang="es">La forma más rápida de entrar es nuestro Discord. Preséntate, haz preguntas y mira lo que estamos construyendo. Si prefieres contactarnos directamente, el formulario de abajo también funciona.</span>
+    </p>
+
+    <div class="social-strip reveal reveal-delay-3" style="margin-bottom:3.5rem">
+      <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-flex;align-items:center;gap:.6rem"><span><span data-lang="en">💬 Join our Discord →</span><span data-lang="es">💬 Únete a nuestro Discord →</span></span></a>
+      <a href="https://x.com/Polaris_Fuel" target="_blank" rel="noopener noreferrer" class="social-link"><span>𝕏</span> Twitter / X</a>
+    </div>
+
+    <p style="font-family:'Cinzel',serif;font-size:.57rem;letter-spacing:.35em;text-transform:uppercase;color:var(--text-dim);margin-bottom:2rem" class="reveal">
+      <span data-lang="en">— Or send us a message directly —</span>
+      <span data-lang="es">— O envíanos un mensaje directamente —</span>
+    </p>
+
+    <!-- Success state -->
+    <div class="form-success" id="form-success">
+      <h3><span data-lang="en">Application Received</span><span data-lang="es">Solicitud Recibida</span></h3>
+      <p>
+        <span data-lang="en">We'll review your application and reach out within 48 hours. In the meantime, join our Discord to meet the team.</span>
+        <span data-lang="es">Revisaremos tu solicitud y nos comunicaremos en 48 horas. Mientras tanto, únete a nuestro Discord para conocer al equipo.</span>
+      </p>
+      <div class="social-strip" style="margin-top:1.5rem">
+        <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer" class="social-link"><span>💬</span> Discord</a>
+      </div>
+    </div>
+
+    <form class="apply-form reveal" id="apply-form" action="https://formspree.io/f/xaqdjrzk" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">
+            <span data-lang="en">Name / Handle</span>
+            <span data-lang="es">Nombre / Handle</span>
+          </label>
+          <input type="text" id="name" name="name" placeholder="Your in-game or Discord name" required>
+        </div>
+        <div class="form-group">
+          <label for="discord">Discord</label>
+          <input type="text" id="discord" name="discord" placeholder="username or handle">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="role">
+            <span data-lang="en">What best describes you?</span>
+            <span data-lang="es">¿Qué te describe mejor?</span>
+          </label>
+          <select id="role" name="role" required>
+            <option value="" disabled selected>
+              <span data-lang="en">Select what fits you best</span>
+              <span data-lang="es">Selecciona lo que mejor te describe</span>
+            </option>
+            <option value="Active Player" data-en="Active Player" data-es="Jugador Activo">Active Player</option>
+            <option value="Economy Student" data-en="Economy Student / Learning" data-es="Estudiante de Economía">Economy Student / Learning</option>
+            <option value="Economic Builder" data-en="Economic Builder (strategic play)" data-es="Constructor Económico (juego estratégico)">Economic Builder (strategic play)</option>
+            <option value="Web3 Enthusiast" data-en="Web3 Enthusiast (broader ecosystem)" data-es="Entusiasta Web3 (ecosistema general)">Web3 Enthusiast (broader ecosystem)</option>
+            <option value="Trader / Coordinator" data-en="Trader &amp; Coordinator" data-es="Trader y Coordinador">Trader &amp; Coordinator</option>
+            <option value="Content Creator" data-en="Content Creator" data-es="Creador de Contenido">Content Creator</option>
+            <option value="Other" data-en="Other (tell us below)" data-es="Otro (cuéntanos abajo)">Other (tell us below)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="games">
+            <span data-lang="en">Active Game Ecosystems</span>
+            <span data-lang="es">Ecosistemas de Juego Activos</span>
+          </label>
+          <input type="text" id="games" name="games" placeholder="e.g. Valannia, Star Atlas, other">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">
+          <span data-lang="en">Tell us about yourself</span>
+          <span data-lang="es">Cuéntanos sobre ti</span>
+        </label>
+        <textarea id="message" name="message" placeholder="What games are you into? How did you find us? Anything you want us to know..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <span>
+          <span data-lang="en">Send Message →</span>
+          <span data-lang="es">Enviar Mensaje →</span>
+        </span>
+      </button>
+    </form>
+
+    <div class="form-alt reveal">
+      <span data-lang="en">Or just join our Discord directly at <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer">discord.gg/yNfUZ4Gb7k</a> — no form needed.</span>
+      <span data-lang="es">O únete directamente a nuestro Discord en <a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer">discord.gg/yNfUZ4Gb7k</a> — sin formularios.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo-text">Polaris Fuel</div>
+    <p class="footer-copy">
+      © 2026 Polaris Fuel<br>
+      <span data-lang="en">Fire &amp; Metal Logistics · Web3 Economic Infrastructure.</span>
+      <span data-lang="es">Fire &amp; Metal Logistics · Infraestructura Económica Web3.</span>
+    </p>
+  </div>
+  <ul class="footer-nav">
+    <li><a href="index.html"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a></li>
+    <li><a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a></li>
+    <li><a href="tools.html"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a></li>
+    <li><a href="resources.html"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a></li>
+    <li><a href="roadmap.html"><span data-lang="en">Roadmap</span><span data-lang="es">Hoja de Ruta</span></a></li>
+    <li><a href="join.html" style="color:var(--fire)"><span data-lang="en">Join Polaris Fuel</span><span data-lang="es">Únete a Polaris Fuel</span></a></li>
+    <li><a href="https://discord.gg/yNfUZ4Gb7k" target="_blank" rel="noopener noreferrer">Discord</a></li>
+    <li><a href="https://x.com/Polaris_Fuel" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+  </ul>
+  <div class="footer-token">◈ FUEL</div>
+</footer>
+
+<script>
+// ── Custom cursor
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY });
+function animCursor() {
+  rx += (mx-rx)*.15; ry += (my-ry)*.15;
+  if(cur){ cur.style.left=mx+'px'; cur.style.top=my+'px' }
+  if(ring){ ring.style.left=rx+'px'; ring.style.top=ry+'px' }
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+
+// ── Navbar scroll
+const nb = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if(nb) nb.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Particle canvas
+const canvas = document.getElementById('particle-canvas');
+if(canvas) {
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  function resize() { W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight }
+  resize(); window.addEventListener('resize', resize);
+  class P {
+    constructor() { this.reset(true) }
+    reset(init=false) {
+      this.x=Math.random()*W; this.y=init?Math.random()*H:H+10;
+      this.size=Math.random()*1.8+.4; this.vy=-(Math.random()*.5+.15);
+      this.vx=(Math.random()-.5)*.25; this.life=0;
+      this.maxLife=Math.random()*180+80; this.hue=Math.random()*25+8;
+    }
+    update() { this.x+=this.vx; this.y+=this.vy; this.life++; if(this.life>this.maxLife||this.y<-10)this.reset() }
+    draw() {
+      const t=this.life/this.maxLife, a=t<.3?t/.3:1-((t-.3)/.7);
+      ctx.save(); ctx.globalAlpha=a*.65;
+      ctx.fillStyle=`hsl(${this.hue},100%,60%)`; ctx.shadowBlur=5; ctx.shadowColor=ctx.fillStyle;
+      ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); ctx.restore();
+    }
+  }
+  for(let i=0;i<100;i++) particles.push(new P());
+  function animP() { ctx.clearRect(0,0,W,H); particles.forEach(p=>{p.update();p.draw()}); requestAnimationFrame(animP) }
+  animP();
+}
+
+// ── Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, { threshold:.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── Language
+function setLang(lang) {
+  document.body.classList.toggle('lang-es', lang==='es');
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector('.lang-btn-'+lang);
+  if(btn) btn.classList.add('active');
+  document.querySelectorAll('select option[data-en]').forEach(opt => {
+    opt.textContent = lang==='es' ? opt.dataset.es : opt.dataset.en;
+  });
+  localStorage.setItem('pf-lang', lang);
+}
+const savedLang = localStorage.getItem('pf-lang');
+if(savedLang==='es') setLang('es');
+
+// ── Mobile menu
+const ham = document.getElementById('hamburger');
+const mob = document.getElementById('mobile-menu');
+if(ham && mob) {
+  ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open') });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    ham.classList.remove('open'); mob.classList.remove('open');
+  }));
+}
+
+// ── Form submission
+const form = document.getElementById('apply-form');
+const successEl = document.getElementById('form-success');
+if(form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    btn.disabled = true;
+    const isEs = document.body.classList.contains('lang-es');
+    btn.querySelector('span').innerHTML = isEs ? 'Enviando...' : 'Sending...';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok) {
+        form.style.display = 'none';
+        successEl.classList.add('visible');
+      } else {
+        btn.disabled = false;
+        btn.querySelector('span').innerHTML = isEs ? 'Enviar Solicitud →' : 'Submit Application →';
+        alert(isEs ? 'Algo salió mal. Intenta de nuevo.' : 'Something went wrong. Please try again.');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.querySelector('span').innerHTML = isEs ? 'Enviar Solicitud →' : 'Submit Application →';
+      alert(isEs ? 'Error de red. Intenta de nuevo.' : 'Network error. Please try again.');
+    }
+  });
+}
+</script>
+</body>
+</html>
