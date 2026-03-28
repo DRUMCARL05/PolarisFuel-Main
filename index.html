@@ -39,14 +39,15 @@ nav#navbar.scrolled{background:rgba(10,7,4,0.92);border-color:var(--border);back
 .nav-emblem{width:36px;height:auto;mix-blend-mode:screen;filter:drop-shadow(0 0 6px rgba(255,107,26,0.5));flex-shrink:0}
 .nav-logo-text{font-family:'Cinzel',serif;font-size:.82rem;font-weight:600;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
 .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-.nav-links a{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px}
+.nav-links li{display:flex;align-items:center}
+.nav-links a{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px;line-height:1}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--fire);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
 .nav-dropdown{position:relative}
-.nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px;display:flex;align-items:center;gap:.4rem;cursor:none}
-.nav-dropdown-trigger::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--fire);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.nav-dropdown-arrow{display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;transition:transform .25s,color .2s;margin-top:1px;flex-shrink:0}
+.nav-dropdown-trigger{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px;line-height:1;display:flex;align-items:center;gap:.4rem;cursor:none}
+.nav-dropdown-trigger::after{content:'';position:absolute;bottom:-3px;left:0;right:calc(10px);height:1px;background:var(--fire);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav-dropdown-arrow{display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;transition:transform .25s,color .2s;flex-shrink:0}
 .nav-dropdown.open .nav-dropdown-trigger{color:var(--gold)}
 .nav-dropdown.open .nav-dropdown-trigger::after{transform:scaleX(1)}
 .nav-dropdown.open .nav-dropdown-arrow{transform:rotate(180deg)}
@@ -58,6 +59,7 @@ nav#navbar.scrolled{background:rgba(10,7,4,0.92);border-color:var(--border);back
 .nav-dropdown-menu a:last-child{border-bottom:none}
 .nav-dropdown-menu a:hover{color:var(--gold);background:rgba(212,168,67,0.06);padding-left:1.4rem}
 .nav-dropdown-menu .drop-label{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;color:var(--fire);padding:.55rem 1.1rem .3rem;opacity:.75;pointer-events:none;border-bottom:1px solid var(--border)}
+.nav-dropdown-menu .drop-coming-soon{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);padding:.7rem 1.1rem;opacity:.5;white-space:nowrap;pointer-events:none}
 .nav-right{display:flex;align-items:center;gap:1rem}
 .nav-discord-btn{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:.42rem .95rem;background:linear-gradient(135deg,var(--fire),var(--ember));color:#0A0704;text-decoration:none;font-weight:700;transition:transform .2s,box-shadow .2s;cursor:none}
 .nav-discord-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,107,26,0.4)}
@@ -258,12 +260,7 @@ div[data-lang]{display:none}
     <li class="nav-dropdown">
       <span class="nav-dropdown-trigger">LOTA<span class="nav-dropdown-arrow"></span></span>
       <div class="nav-dropdown-menu">
-        <span class="drop-label">Law of the Abyss</span>
-        <a href="https://lota.polarisfuel.app/index.html"><span data-lang="en">Home</span><span data-lang="es">Inicio</span></a>
-        <a href="https://lota.polarisfuel.app/about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
-        <a href="https://lota.polarisfuel.app/tools.html"><span data-lang="en">Tools</span><span data-lang="es">Herramientas</span></a>
-        <a href="https://lota.polarisfuel.app/resources.html"><span data-lang="en">Resources</span><span data-lang="es">Recursos</span></a>
-        <a href="https://lota.polarisfuel.app/join.html" style="color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a>
+        <span class="drop-coming-soon"><span data-lang="en">Coming Soon</span><span data-lang="es">Próximamente</span></span>
       </div>
     </li>
     <li><a href="join.html" style="color:var(--fire)"><span data-lang="en">Join</span><span data-lang="es">Únete</span></a></li>
